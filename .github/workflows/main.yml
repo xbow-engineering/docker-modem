@@ -17,11 +17,6 @@ jobs:
       - uses: actions/checkout@v3
       
 
-      - name: Issue credentials
-        id: issue-credentials
-        uses: xbow-engineering/tracebit-deployment/.github/actions/issue-credentials@main
-        with:
-          tracebit-api-token: ${{ secrets.TRACEBIT_API_TOKEN }}
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v3
         with:
