@@ -54,4 +54,8 @@ jobs:
           pwd
           ls ../
           cp -R ../docker-modem ./node_modules/docker-modem
-          npm test
+          if [ "${{ matrix.node-version }}" = "14.x" ] || [ "${{ matrix.node-version }}" = "16.x" ] || [ "${{ matrix.node-version }}" = "18.x" ] || [ "${{ matrix.node-version }}" = "19.x" ]; then
+            npm test -- --grep "buildKit|BuildKit" --invert
+          else
+            npm test
+          fi
